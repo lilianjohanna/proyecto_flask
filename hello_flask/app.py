@@ -6,9 +6,9 @@ from flask import render_template
 app = Flask(__name__)
 
 
-@app.route("/")
-def home():
-    return "Hello, Flask!"
+#@app.route("/")
+#def home():
+    #return "Hello, Flask!"
 
 
 @app.route("/hello/<name>")
