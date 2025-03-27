@@ -12,7 +12,7 @@ def home():
 
 
 @app.route("/hello/<name>")
-def hello_there(name=None):
+def hello_there(name='Lilian Johanna Montero Ortega'):
     return render_template(
         "hello_there.html",
         name=name,
