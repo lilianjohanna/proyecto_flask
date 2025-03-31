@@ -26,7 +26,7 @@ def form_example():
     # otherwise handle the GET request
     return '''
            <form method="POST">
-               <div><label>Language: <input type="text" name="language"></label></div>
-               <div><label>Framework: <input type="text" name="framework"></label></div>
+               <div><label>Language: <input type="text" name="name"></label></div>
+               <div><label>Framework: <input type="text" name="email"></label></div>
                <input type="submit" value="Submit">
            </form>'''
