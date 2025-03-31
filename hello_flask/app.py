@@ -44,6 +44,6 @@ def hello_there():
         return '''
            <form method="POST">
                <div><label>Tipo de documento: <input type="text" name="name"></label></div>
-               <div><label>Número de documento: <input type="number" name="email"></label></div>
+               <div><label>Número de documento: <input type="text" name="email"></label></div>
                <input type="submit" value="Submit">
            </form>'''
