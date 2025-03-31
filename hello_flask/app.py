@@ -31,9 +31,8 @@ def hello_there():
                     <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
                     <div><label>Número de documento: <input type="text" name="email" readonly></label></div>
                     <input type="submit" value="Cerrar">
-                    <h4>Body: {listaresultados[4]}</h4>
                     <h4>Tipo de documento: {}</h4>
-                    <h4>Número de documento: {}</h4>'''.format(language, framework)
+                    <h4>Número de documento: {}</h4>'''.format(language, framework)+{listaresultados[list]}
         else:
             #print('Error en la solicitud, detalles:', response.text)
             return '''
