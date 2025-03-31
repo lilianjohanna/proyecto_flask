@@ -34,7 +34,7 @@ def hello_there():
                     <input type="submit" value="Cerrar">
                     <h4>Tipo de documento: {}</h4>
                     <h4>Número de documento: {}</h4>'''.format(language, framework)+'''
-                    <p>Registro encontrado: '''+{listaresultados[0]['postId']}+'''</br>'''+{listaresultados[0]['email']}
+                    <p>Registro encontrado: '''+{listaresultados[0][0]}+'''</br>'''+{listaresultados[0][3]}
 
         else:
             #print('Error en la solicitud, detalles:', response.text)
