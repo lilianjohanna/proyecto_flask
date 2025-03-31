@@ -20,7 +20,7 @@ def hello_there():
         language = request.form.get('name')
         framework = request.form.get('email')
         return '''
-            <form action="#">
+            <form action="javascript:window.close();">
                 <div><label>Tipo de documento: <input type="text" name="name"></label></div>
                 <div><label>Número de documento: <input type="number" name="email"></label></div>
                 <input type="submit" value="Submit">
