@@ -23,10 +23,14 @@ def hello_there():
         URL = 'https://jsonplaceholder.typicode.com/comments?postId='+language+'&email='+framework
         response = requests.get(URL)
         if response.status_code == 200:
-            print('Registro encontrado:')
-            print('Data:', response.json())
+            #print('Registro encontrado:')
+            #print('Data:', response.json())
+            '''
+            <p>Registro encontrado: '''.response.json()
         else:
-            print('Error en la solicitud, detalles:', response.text)
+            #print('Error en la solicitud, detalles:', response.text)
+            '''
+            <p>Error en la solicitud, detalles: '''.response.text
         return '''
             <form action="javascript:window.close();">
                 <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
