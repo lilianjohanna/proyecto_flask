@@ -7,14 +7,14 @@ app = Flask(__name__)
 
 
 @app.route("/")
-@app.route("/hello/<name>",methods=["GET", "POST"])
+@app.route("/hello/<name>",methods=['GET', 'POST'])
 #def hello_there(name='Lilian Johanna'):
     #return render_template(
         #"signup_form.html",
         #name=name,
         #date=datetime.now()
     #)
-def form_example():
+def hello_there():
     # handle the POST request
     if request.method == 'POST':
         language = request.form.get('name')
