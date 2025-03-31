@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.route("/")
-@app.route("/hello/<name>",methods=['GET', 'POST'])
+@app.route("/hello/<name>", methods=['GET', 'POST'])
 #def hello_there(name='Lilian Johanna'):
     #return render_template(
         #"signup_form.html",
