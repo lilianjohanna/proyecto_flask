@@ -22,10 +22,10 @@ def hello_there():
         return '''
                   <h1>The name value is: {}</h1>
                   <h1>The email value is: {}</h1>'''.format(language, framework)
-
-    # otherwise handle the GET request
-    return '''
-           <form method="GET">
+    else:
+        # otherwise handle the GET request
+        return '''
+           <form method="POST">
                <div><label>Language: <input type="text" name="name"></label></div>
                <div><label>Framework: <input type="text" name="email"></label></div>
                <input type="submit" value="Submit">
