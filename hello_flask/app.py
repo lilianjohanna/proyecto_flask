@@ -26,6 +26,7 @@ def hello_there():
         if response.status_code == 200:
             #print('Registro encontrado:')
             #print('Data:', response.json())
+            listaresultados=json.dumps(response.json())
             return '''
                 <form action="javascript:window.close();">
                     <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
@@ -33,7 +34,7 @@ def hello_there():
                     <input type="submit" value="Cerrar">
                     <h4>Tipo de documento: {}</h4>
                     <h4>Número de documento: {}</h4>'''.format(language, framework)+'''
-                    <p>Registro encontrado: '''+json.dumps(response.json())
+                    <p>Registro encontrado: '''+{listaresultados[0]['postId']}+'''</br>'''+{listaresultados[0]['email']}
 
         else:
             #print('Error en la solicitud, detalles:', response.text)
