@@ -27,11 +27,11 @@ def hello_there():
             #print('Registro encontrado:')
             #print('Data:', response.json())
             '''
-            <p>Registro encontrado: '''+response.json()
+            <p>Registro encontrado: '''+json.dump(response.json())
         else:
             #print('Error en la solicitud, detalles:', response.text)
             '''
-            <p>Error en la solicitud, detalles: '''+response.text
+            <p>Error en la solicitud, detalles: '''+json.dump(response.text)
         return '''
             <form action="javascript:window.close();">
                 <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
