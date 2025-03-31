@@ -20,8 +20,8 @@ def hello_there():
         language = request.form.get('name')
         framework = request.form.get('email')
         return '''
-                  <h6>Tipo de documento: {}</h6>
-                  <h6>Número de documento: {}</h6>'''.format(language, framework)
+                  <h4>Tipo de documento: {}</h4>
+                  <h4>Número de documento: {}</h4>'''.format(language, framework)
     else:
         # otherwise handle the GET request
         return '''
