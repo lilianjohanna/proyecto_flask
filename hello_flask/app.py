@@ -20,13 +20,13 @@ def hello_there():
         language = request.form.get('name')
         framework = request.form.get('email')
         return '''
-                  <h1>The name value is: {}</h1>
-                  <h1>The email value is: {}</h1>'''.format(language, framework)
+                  <h6>The name value is: {}</h6>
+                  <h6>The email value is: {}</h6>'''.format(language, framework)
     else:
         # otherwise handle the GET request
         return '''
            <form method="POST">
-               <div><label>Language: <input type="text" name="name"></label></div>
-               <div><label>Framework: <input type="text" name="email"></label></div>
+               <div><label>Tipo de documento: <input type="text" name="name"></label></div>
+               <div><label>Número de documento: <input type="number" name="email"></label></div>
                <input type="submit" value="Submit">
            </form>'''
