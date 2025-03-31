@@ -26,19 +26,16 @@ def hello_there():
         if response.status_code == 200:
             #print('Registro encontrado:')
             #print('Data:', response.json())
-            '''
-            <p>Registro encontrado: '''+json.dumps(response.json())
+            return '''<p>Registro encontrado: '''+json.dumps(response.json())
         else:
             #print('Error en la solicitud, detalles:', response.text)
-            '''
-            <p>Error en la solicitud, detalles: '''+json.dumps(response.text)
-        return '''
-            <form action="javascript:window.close();">
-                <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
-                <div><label>Número de documento: <input type="text" name="email" readonly></label></div>
-                <input type="submit" value="Cerrar">
-                <h4>Tipo de documento: {}</h4>
-                <h4>Número de documento: {}</h4>'''.format(language, framework)
+            return '''
+                <form action="javascript:window.close();">
+                    <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
+                    <div><label>Número de documento: <input type="text" name="email" readonly></label></div>
+                    <input type="submit" value="Cerrar">
+                    <h4>Tipo de documento: {}</h4>
+                    <h4>Número de documento: {}</h4>'''.format(language, framework)+json.dumps(response.text)
     else:
         # otherwise handle the GET request
         return '''
