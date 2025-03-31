@@ -33,7 +33,7 @@ def hello_there():
                     <div><label>Número de documento: <input type="text" name="email" readonly></label></div>
                     <input type="submit" value="Cerrar">
                     <h4>Tipo de documento: {}</h4>
-                    <h4>Número de documento: {}</h4>'''.format(language, framework)+listaresultados.count
+                    <h4>Número de documento: {}</h4>'''.format(language, framework)+listaresultados
         else:
             #print('Error en la solicitud, detalles:', response.text)
             return '''
