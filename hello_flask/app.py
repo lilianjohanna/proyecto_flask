@@ -25,7 +25,7 @@ def hello_there():
 
     # otherwise handle the GET request
     return '''
-           <form method="POST">
+           <form method="GET">
                <div><label>Language: <input type="text" name="name"></label></div>
                <div><label>Framework: <input type="text" name="email"></label></div>
                <input type="submit" value="Submit">
