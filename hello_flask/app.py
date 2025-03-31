@@ -30,4 +30,6 @@ def hello_there():
                <div><label>Tipo de documento: <input type="text" name="name"></label></div>
                <div><label>Número de documento: <input type="number" name="email"></label></div>
                <input type="submit" value="Submit">
-           </form>'''
+               <h4>Tipo de documento: {}</h4>
+               <h4>Número de documento: {}</h4>'''.format(language, framework)
+           #</form>'''
