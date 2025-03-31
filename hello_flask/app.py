@@ -2,6 +2,7 @@ import re
 from datetime import datetime
 from flask import Flask, request
 from flask import render_template
+import requests
 
 app = Flask(__name__)
 
@@ -19,6 +20,13 @@ def hello_there():
     if request.method == 'POST':
         language = request.form.get('name')
         framework = request.form.get('email')
+        URL = 'https://jsonplaceholder.typicode.com/comments?postId='+language+'&email='+framework
+        response = requests.get(URL)
+        if response.status_code == 200:
+            print('Registro encontrado:')
+            print('Data:', response.json())
+        else:
+            print('Error en la solicitud, detalles:', response.text)
         return '''
             <form action="javascript:window.close();">
                 <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
