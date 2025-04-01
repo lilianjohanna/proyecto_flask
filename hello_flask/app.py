@@ -1,9 +1,12 @@
 import re
 from datetime import datetime
-from flask import Flask, request
-from flask import render_template
+from flask import Flask, request, jsonify, render_template
 import requests
 import json
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+
+app = Flask(__name__)
+jwt = JWTManager(app)
 
 app = Flask(__name__)
 
