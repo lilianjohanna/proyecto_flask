@@ -18,29 +18,14 @@ def hello_there():
     if request.method == 'POST':
         language = request.form.get('name')
         framework = request.form.get('email')
-        URL = 'https://vanti.ecs-la.com/VantiListoServicesNMTest/api/Auth/LoginApi'
+        auth_url = 'https://vanti.ecs-la.com/VantiListoServicesNMTest/api/Auth/LoginApi'
         datos={"username":"info@adndigital.co","password":"Vanti2023*"}
-        response = requests.get(URL)
+        response = requests.post(auth_url,json=datos)
         if response.status_code == 200:
-            #print('Registro encontrado:')
-            #print('Data:', response.json())
-            listaresultados=json.dumps(response.json())
-            return '''
-                <form action="javascript:window.close();">
-                    <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
-                    <div><label>Número de documento: <input type="text" name="email" readonly></label></div>
-                    <input type="submit" value="Cerrar">
-                    <h4>Tipo de documento: {}</h4>
-                    <h4>Número de documento: {}</h4>'''.format(language, framework)+listaresultados
+            token=response.json().get("token")
+            print("Token obtenido: ", token)
         else:
-            #print('Error en la solicitud, detalles:', response.text)
-            return '''
-                <form action="javascript:window.close();">
-                    <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
-                    <div><label>Número de documento: <input type="text" name="email" readonly></label></div>
-                    <input type="submit" value="Cerrar">
-                    <h4>Tipo de documento: {}</h4>
-                    <h4>Número de documento: {}</h4>'''.format(language, framework)+json.dumps(response.text)
+            print(f"Error al obtener el token: {response.status_code} - {response.text}")
     else:
         # otherwise handle the GET request
         return '''
