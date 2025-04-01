@@ -18,7 +18,8 @@ def hello_there():
     if request.method == 'POST':
         language = request.form.get('name')
         framework = request.form.get('email')
-        URL = 'https://jsonplaceholder.typicode.com/comments?postId='+language+'&email='+framework
+        URL = 'https://vanti.ecs-la.com/VantiListoServicesNMTest/api/Auth/LoginApi'
+        datos={"username":"info@adndigital.co","password":"Vanti2023*"}
         response = requests.get(URL)
         if response.status_code == 200:
             #print('Registro encontrado:')
