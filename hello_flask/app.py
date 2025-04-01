@@ -10,9 +10,6 @@ jwt = JWTManager(app)
 
 app = Flask(__name__)
 
-
-@app.route("/", methods=['GET', 'POST'])
-@app.route("/hello/<name>", methods=['GET', 'POST'])
 def hello_there():
     auth_url = 'https://vanti.ecs-la.com/VantiListoServicesNMTest/api/Auth/LoginApi'
     datos={"username":"info@adndigital.co","password":"Vanti2023*"}
