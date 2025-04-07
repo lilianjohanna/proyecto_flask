@@ -18,25 +18,30 @@ def hello_there():
     if request.method == 'POST':
         language = request.form.get('name')
         framework = request.form.get('email')
-        URL = 'https://jsonplaceholder.typicode.com/comments?postId='+language+'&email='+framework
+        URL = 'https://www.datos.gov.co/resource/6cat-2gcs.json?nit='+language+'&supervisor='+framework
         response = requests.get(URL)
         if response.status_code == 200:
             #print('Registro encontrado:')
             #print('Data:', response.json())
             listaresultados=json.dumps(response.json())
+            totallista=len(listaresultados)
+            resultadofinal=[]
+            for items in item2:
+                resultadofinal.append(items)
+            item2=resultadofinal
             return '''
                 <form action="javascript:window.close();">
-                    <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
-                    <div><label>Número de documento: <input type="text" name="email" readonly></label></div>
+                    <div><label>NIT: <input type="text" name="name" readonly></label></div>
+                    <div><label>Supervisor: <input type="text" name="email" readonly></label></div>
                     <input type="submit" value="Cerrar">
                     <h4>Tipo de documento: {}</h4>
-                    <h4>Número de documento: {}</h4>'''.format(language, framework)+listaresultados
+                    <h4>Número de documento: {}</h4>'''.format(language, framework)+item2
         else:
             #print('Error en la solicitud, detalles:', response.text)
             return '''
                 <form action="javascript:window.close();">
-                    <div><label>Tipo de documento: <input type="text" name="name" readonly></label></div>
-                    <div><label>Número de documento: <input type="text" name="email" readonly></label></div>
+                    <div><label>NIT: <input type="text" name="name" readonly></label></div>
+                    <div><label>Supervisor: <input type="text" name="email" readonly></label></div>
                     <input type="submit" value="Cerrar">
                     <h4>Tipo de documento: {}</h4>
                     <h4>Número de documento: {}</h4>'''.format(language, framework)+json.dumps(response.text)
@@ -44,7 +49,7 @@ def hello_there():
         # otherwise handle the GET request
         return '''
            <form method="POST">
-               <div><label>Tipo de documento: <input type="text" name="name"></label></div>
-               <div><label>Número de documento: <input type="text" name="email"></label></div>
+               <div><label>NIT: <input type="text" name="name"></label></div>
+               <div><label>Supervisor: <input type="text" name="email"></label></div>
                <input type="submit" value="Submit">
            </form>'''
