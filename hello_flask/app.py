@@ -21,21 +21,14 @@ def hello_there():
         URL = 'https://www.datos.gov.co/resource/6cat-2gcs.json?nit='+language+'&supervisor='+framework
         response = requests.get(URL)
         if response.status_code == 200:
-            #print('Registro encontrado:')
-            #print('Data:', response.json())
             listaresultados=json.dumps(response.json())
-            totallista=len(listaresultados)
-            resultadofinal=[]
-            for items in item2:
-                resultadofinal.append(items)
-                item2=resultadofinal
             return '''
                 <form action="javascript:window.close();">
                     <div><label>NIT: <input type="text" name="name" readonly></label></div>
                     <div><label>Supervisor: <input type="text" name="email" readonly></label></div>
                     <input type="submit" value="Cerrar">
                     <h4>Tipo de documento: {}</h4>
-                    <h4>Número de documento: {}</h4>'''.format(language, framework)+item2
+                    <h4>Número de documento: {}</h4>'''.format(language, framework)+listaresultados
         else:
             #print('Error en la solicitud, detalles:', response.text)
             return '''
