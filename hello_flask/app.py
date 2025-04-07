@@ -22,7 +22,7 @@ def hello_there():
         response = requests.get(URL)
         if response.status_code == 200:
             listaresultados=json.dumps(response.json())
-            with open('https://www.datos.gov.co/resource/6cat-2gcs.json', 'r') as json_File:
+            with open(response.json(), 'r') as json_File:
                 sample_load_file = json.load(json_File)
                 test = sample_load_file['criteria']
                 nit = test[1].values()
