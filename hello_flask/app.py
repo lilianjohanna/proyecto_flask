@@ -22,13 +22,21 @@ def hello_there():
         response = requests.get(URL)
         if response.status_code == 200:
             listaresultados=json.dumps(response.json())
+            with open('https://www.datos.gov.co/resource/6cat-2gcs.json', 'r') as json_File:
+                sample_load_file = json.load(json_File)
+                test = sample_load_file['criteria']
+                nit = test[1].values()
+                razonsocial = test[2].values()
+                supervisor = test[3].values()
+                depdomicilio = test[4].values()
+                cadenaresultado = nit + '</br>' + razonsocial + '</br>' + supervisor + '</br>' + depdomicilio
             return '''
                 <form action="javascript:window.close();">
                     <div><label>NIT: <input type="text" name="name" readonly></label></div>
                     <div><label>Supervisor: <input type="text" name="email" readonly></label></div>
                     <input type="submit" value="Cerrar">
                     <h4>Tipo de documento: {}</h4>
-                    <h4>Número de documento: {}</h4>'''.format(language, framework)+listaresultados
+                    <h4>Número de documento: {}</h4>'''.format(language, framework)+cadenaresultado
         else:
             #print('Error en la solicitud, detalles:', response.text)
             return '''
@@ -37,7 +45,7 @@ def hello_there():
                     <div><label>Supervisor: <input type="text" name="email" readonly></label></div>
                     <input type="submit" value="Cerrar">
                     <h4>Tipo de documento: {}</h4>
-                    <h4>Número de documento: {}</h4>'''.format(language, framework)+json.dumps(response.text)
+                    <h4>Número de documento: {}</h4>'''.format(language, framework)+listaresultados
     else:
         # otherwise handle the GET request
         return '''
