@@ -21,7 +21,7 @@ def hello_there():
         URL = 'https://www.datos.gov.co/resource/6cat-2gcs.json?nit='+language+'&supervisor='+framework
         response = requests.get(URL)
         if response.status_code == 200:
-            listaresultados=json.loads(response.json())
+            listaresultados=json.loads(json.stringify(response.json()))
             nit = listaresultados["nit"]+'</br>'
             razonsocial = listaresultados["raz_n_social"]+'</br>'
             supervisor = listaresultados["departamento_domicilio"]+'</br>'
