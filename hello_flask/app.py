@@ -28,7 +28,7 @@ def hello_there():
             resultadofinal=[]
             for items in item2:
                 resultadofinal.append(items)
-            item2=resultadofinal
+                item2=resultadofinal
             return '''
                 <form action="javascript:window.close();">
                     <div><label>NIT: <input type="text" name="name" readonly></label></div>
