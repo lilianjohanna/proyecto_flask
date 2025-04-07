@@ -22,21 +22,14 @@ def hello_there():
         response = requests.get(URL)
         if response.status_code == 200:
             listaresultados=json.dumps(response.json())
-            with open(listaresultados, 'r') as json_File:
-                sample_load_file = json.load(json_File)
-                test = sample_load_file['criteria']
-                nit = test[1].values()
-                razonsocial = test[2].values()
-                supervisor = test[3].values()
-                depdomicilio = test[4].values()
-                cadenaresultado = nit + '</br>' + razonsocial + '</br>' + supervisor + '</br>' + depdomicilio
+            nit=listaresultados[1]
             return '''
                 <form action="javascript:window.close();">
                     <div><label>NIT: <input type="text" name="name" readonly></label></div>
                     <div><label>Supervisor: <input type="text" name="email" readonly></label></div>
                     <input type="submit" value="Cerrar">
                     <h4>Tipo de documento: {}</h4>
-                    <h4>Número de documento: {}</h4>'''.format(language, framework)+cadenaresultado
+                    <h4>Número de documento: {}</h4>'''.format(language, framework)+nit
         else:
             #print('Error en la solicitud, detalles:', response.text)
             return '''
